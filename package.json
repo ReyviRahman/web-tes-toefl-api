@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "serverjs",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Reyvi Rahman",
   "license": "ISC",
