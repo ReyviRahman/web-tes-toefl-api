@@ -12,7 +12,7 @@ const sequelize = require('./db.config');
 //   .catch((error) => {
 //     console.error('Error creating database & tables:', error);
 //   });
-  
+//
 sequelize
   .authenticate()
   .then(() => {
