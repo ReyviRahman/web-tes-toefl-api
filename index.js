@@ -1,7 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-require("dotenv").config();
 const port = process.env.PORT || 3001;
 
 const sequelize = require('./db.config');
@@ -12,7 +12,6 @@ const sequelize = require('./db.config');
 //   .catch((error) => {
 //     console.error('Error creating database & tables:', error);
 //   });
-//
 sequelize
   .authenticate()
   .then(() => {
