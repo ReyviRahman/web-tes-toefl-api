@@ -13,18 +13,6 @@ const sequelize = require('./db.config');
 //   .catch((error) => {
 //     console.error('Error creating database & tables:', error);
 //   });
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-    return sequelize.sync();
-  })
-  .then(() => {
-    console.log('Database is ready.');
-  })
-  .catch((error) => {
-    console.error('Unable to connect to the database:', error);
-  });
 
 // Mengimpor endpoint
 const userEndpoint = require('./routes/users');
@@ -38,8 +26,22 @@ app.use(cors({
   origin: 'http://localhost:3000', // Ganti dengan URL front-end Anda
   credentials: true // Izinkan pengiriman cookie
 }));
+
 app.use(express.json());
 app.use(cookieParser());
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+    return sequelize.sync();
+  })
+  .then(() => {
+    console.log('Database is ready.');
+  })
+  .catch((error) => {
+    console.error('Unable to connect to the database:', error);
+  });
 
 // Routing
 app.use('/users', userEndpoint);
