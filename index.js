@@ -31,11 +31,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-    return sequelize.sync();
-  })
+  .sync()
   .then(() => {
     console.log('Database is ready.');
   })
